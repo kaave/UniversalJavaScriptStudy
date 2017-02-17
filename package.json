@@ -5,9 +5,10 @@
   "repository": {},
   "license": "MIT",
   "scripts": {
-    "start": "npm run build && node ./dist/server.js",
-    "build": "npm run build:client && npm run build:server",
-    "build:client": "webpack --config=webpack.config.client.js",
+    "start": "nf start",
+    "start:client": "yarn run build:client",
+    "start:server": "yarn run build:server && node ./dist/server.js",
+    "build:client": "webpack --config=webpack.config.client.js -w",
     "build:server": "webpack --config=webpack.config.server.js"
   },
   "dependencies": {
@@ -24,6 +25,7 @@
     "babel-preset-react": "^6.23.0",
     "babel-preset-stage-0": "^6.22.0",
     "css-loader": "^0.26.1",
+    "foreman": "^2.0.0",
     "isomorphic-style-loader": "^1.1.0",
     "postcss-cssnext": "^2.9.0",
     "postcss-import": "^9.1.0",
