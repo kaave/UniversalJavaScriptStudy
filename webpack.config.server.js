@@ -1,3 +1,12 @@
+// const path = require('path');
+const fs = require('fs');
+
+const nodeModules = {};
+
+fs.readdirSync('node_modules')
+  .filter(x => ['.bin'].indexOf(x) === -1)
+  .forEach(mod => (nodeModules[mod] = 'commonjs ' + mod));
+
 module.exports = {
   context: process.cwd(),
   entry: './server.jsx',
@@ -6,6 +15,7 @@ module.exports = {
     path: './dist/',
     filename: 'server.js'
   },
+  externals: nodeModules,
   module: {
     rules: [
       {
@@ -16,6 +26,7 @@ module.exports = {
       {
         test: /\.css$/,
         use: [
+          'isomorphic-style-loader',
           {
             loader: 'css-loader',
             options: {
