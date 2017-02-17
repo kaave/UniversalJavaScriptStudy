@@ -126,3 +126,6 @@ tags
 !.vscode/extensions.json
 
 # End of https://www.gitignore.io/api/node,osx,linux,vim,visualstudiocode
+
+### Manual ###
+dist

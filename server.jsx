@@ -12,7 +12,7 @@ const app = express();
 app.set('view engine', 'ejs');
 
 // set assets file path
-app.use(express.static('public'));
+app.use(express.static('dist'));
 
 // routes
 app.get('*', (req, res) => {

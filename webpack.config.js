@@ -3,7 +3,7 @@ const path = require('path');
 module.exports = {
   entry: path.join(process.cwd(), 'client.jsx'),
   output: {
-    path: './public/',
+    path: './dist/',
     filename: 'build.js'
   },
   module: {
