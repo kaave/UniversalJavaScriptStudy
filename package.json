@@ -5,7 +5,10 @@
   "repository": {},
   "license": "MIT",
   "scripts": {
-    "start": "webpack && babel-node server.jsx"
+    "start": "npm run build && node ./dist/server.js",
+    "build": "npm run build:client && npm run build:server",
+    "build:client": "webpack --config=webpack.config.client.js",
+    "build:server": "webpack --config=webpack.config.server.js"
   },
   "dependencies": {
     "ejs": "^2.5.6",
@@ -20,6 +23,11 @@
     "babel-preset-latest": "^6.22.0",
     "babel-preset-react": "^6.23.0",
     "babel-preset-stage-0": "^6.22.0",
+    "css-loader": "^0.26.1",
+    "postcss-cssnext": "^2.9.0",
+    "postcss-import": "^9.1.0",
+    "postcss-loader": "^1.3.0",
+    "style-loader": "^0.13.1",
     "webpack": "^2.2.1"
   }
 }

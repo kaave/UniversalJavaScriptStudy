@@ -1,9 +1,11 @@
 import React from 'react';
 
+import styles from './about.css';
+
 export default function(_props) {
   return (
-    <div>
-      <p>A little bit about me.</p>
+    <div className={styles.body}>
+      <p className={styles.message}>A little bit about me.</p>
     </div>
   );
 }
