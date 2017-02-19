@@ -4,8 +4,8 @@ import React from 'react';
 import { renderToString } from 'react-dom/server';
 import { match, RouterContext } from 'react-router';
 
+import routes from '../common/routes.jsx';
 import { port } from '../common/configs';
-import { routes } from '../common/routes';
 import { helmet } from '../components/head.jsx';
 
 const app = express();
