@@ -15,7 +15,7 @@ module.exports = {
   entry: './entry_points/server.jsx',
   target: 'node',
   output: {
-    path: './dist/',
+    path: `${__dirname}/../dist/`,
     filename: 'server.js'
   },
   externals: nodeModules,
