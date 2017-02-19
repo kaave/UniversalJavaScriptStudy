@@ -1,6 +1,6 @@
 module.exports = {
   context: process.cwd(),
-  entry: './client.jsx',
+  entry: './entry_points/client.jsx',
   output: {
     path: './dist/',
     filename: 'client.js'

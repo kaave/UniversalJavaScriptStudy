@@ -4,7 +4,8 @@ import React from 'react';
 import { renderToString } from 'react-dom/server';
 import { match, RouterContext } from 'react-router';
 
-import { routes } from './routes';
+import { port } from '../common/configs';
+import { routes } from '../common/routes';
 
 const app = express();
 
@@ -31,6 +32,6 @@ app.get('*', (req, res) => {
 
 // server start
 const server = http.createServer(app);
-server.listen(3003);
-server.on('listening', () => console.log('Listening on 3003'));
+server.listen(port);
+server.on('listening', () => console.log(`Listening on ${port}`));
 

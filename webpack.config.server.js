@@ -9,7 +9,7 @@ fs.readdirSync('node_modules')
 
 module.exports = {
   context: process.cwd(),
-  entry: './server.jsx',
+  entry: './entry_points/server.jsx',
   target: 'node',
   output: {
     path: './dist/',

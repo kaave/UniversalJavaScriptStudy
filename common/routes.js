@@ -1,6 +1,6 @@
-import AppComponent from './components/app.jsx';
-import IndexComponent from './components/index.jsx';
-import AboutComponent from './components/about.jsx';
+import AppComponent from '../components/app.jsx';
+import IndexComponent from '../components/index.jsx';
+import AboutComponent from '../components/about.jsx';
 
 export const routes = {
   path: '',
