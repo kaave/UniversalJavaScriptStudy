@@ -8,8 +8,8 @@
     "start": "nf start",
     "start:client": "yarn run build:client",
     "start:server": "yarn run build:server && node ./dist/server.js",
-    "build:client": "webpack --config=webpack.config.client.js -w",
-    "build:server": "webpack --config=webpack.config.server.js"
+    "build:client": "webpack --config=webpack/config.client.js -w",
+    "build:server": "webpack --config=webpack/config.server.js"
   },
   "dependencies": {
     "ejs": "^2.5.6",

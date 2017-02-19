@@ -1,11 +1,14 @@
-// const path = require('path');
 const fs = require('fs');
 
-const nodeModules = {};
+const nodeModules = (() => {
+  const result = {}
 
-fs.readdirSync('node_modules')
-  .filter(x => ['.bin'].indexOf(x) === -1)
-  .forEach(mod => (nodeModules[mod] = 'commonjs ' + mod));
+  fs.readdirSync('node_modules')
+    .filter(x => ['.bin'].indexOf(x) === -1)
+    .forEach(mod => (result[mod] = `commonjs ${mod}`))
+
+  return result
+})();
 
 module.exports = {
   context: process.cwd(),
