@@ -6,6 +6,7 @@ import { match, RouterContext } from 'react-router';
 
 import { port } from '../common/configs';
 import { routes } from '../common/routes';
+import { helmet } from '../components/head.jsx';
 
 const app = express();
 
@@ -23,7 +24,9 @@ app.get('*', (req, res) => {
     } else if (redirectLocation) {
       res.redirect(302, redirectLocation.pathname + redirectLocation.search);
     } else if (props) {
-      res.render('index', { markup: renderToString(<RouterContext {...props} />) });
+      const markup = renderToString(<RouterContext {...props} />);
+      const { title, htmlAttributes, meta, link, script, style } = helmet.rewind();
+      res.render('index', { markup, title, htmlAttributes, meta, link, script, style });
     } else {
       res.sendStatus(404);
     }
