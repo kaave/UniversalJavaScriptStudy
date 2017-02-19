@@ -3,12 +3,24 @@ import http from 'http';
 import React from 'react';
 import { renderToString } from 'react-dom/server';
 import { match, RouterContext } from 'react-router';
+import webpack from 'webpack';
+import webpackDevMiddleware from 'webpack-dev-middleware';
+import webpackHotMiddleware from 'webpack-hot-middleware';
 
+import webpackClientConfig from '../webpack/config.client';
 import routes from '../common/routes.jsx';
 import { port } from '../common/configs';
 import { helmet } from '../components/head.jsx';
 
+const compiler = webpack(webpackClientConfig);
 const app = express();
+
+// set dev-middleware
+app.use(webpackDevMiddleware(compiler, {
+  noInfo: true,
+  publicPath: webpackClientConfig.output.publicPath
+}));
+app.use(webpackHotMiddleware(compiler));
 
 // set template engine
 app.set('view engine', 'ejs');
@@ -19,6 +31,8 @@ app.use(express.static('dist'));
 // routes
 app.get('*', (req, res) => {
   match({ routes, location: req.url }, (err, redirectLocation, props) => {
+    console.log(req.url);
+    console.log(routes);
     if (err) {
       res.status(500).send(err.message);
     } else if (redirectLocation) {
