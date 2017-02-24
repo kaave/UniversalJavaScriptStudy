@@ -1,17 +1,20 @@
 import React from 'react';
-import Helmet from "react-helmet";
+import Helmet from 'react-helmet';
 
-export default function (props) {
+export default function(_props) {
   return (
     <Helmet
-      htmlAttributes={{ lang: "ja" }} // amp takes no value
+      htmlAttributes={{ lang: 'ja' }}
       title="Universal React Redux"
       titleTemplate="Universal React Redux - %s"
       defaultTitle="My Default Title"
-      titleAttributes={{ itemprop: "name", lang: "ja" }}
+      titleAttributes={{ itemprop: 'name', lang: 'ja' }}
       meta={[
-        { name: "description", content: "Universal JavaScript: powered by React with Redux" },
-        { name: "charset", content: "UTF-8" }
+        { name: 'description', content: 'Universal JavaScript: powered by React with Redux' },
+        { name: 'charset', content: 'UTF-8' }
+      ]}
+      link={[
+        { rel: 'stylesheet', href: 'app.css' }
       ]}
     />
   );

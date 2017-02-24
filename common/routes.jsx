@@ -7,7 +7,7 @@ import AboutComponent from '../components/about.jsx';
 
 export default (
   <Route path="" component={AppComponent}>
-    <Route path='/' component={IndexComponent} />
-    <Route path='/about' component={AboutComponent} />
+    <Route path="/" component={IndexComponent} />
+    <Route path="/about" component={AboutComponent} />
   </Route>
 );

@@ -1,13 +1,13 @@
 const fs = require('fs');
 
 const nodeModules = (() => {
-  const result = {}
+  const result = {};
 
   fs.readdirSync('node_modules')
     .filter(x => ['.bin'].indexOf(x) === -1)
-    .forEach(mod => (result[mod] = `commonjs ${mod}`))
+    .forEach(mod => (result[mod] = `commonjs ${mod}`));
 
-  return result
+  return result;
 })();
 
 module.exports = {

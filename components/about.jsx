@@ -1,6 +1,6 @@
 import React from 'react';
 
-import styles from '../styles/about.css';
+import styles from './about.css';
 
 export default function(_props) {
   return (
