@@ -3,6 +3,7 @@ import http from 'http';
 import React from 'react';
 import { renderToString } from 'react-dom/server';
 import { match, RouterContext } from 'react-router';
+//import Fetchr from 'fetchr';
 
 import routes from '../common/routes.jsx';
 import { port } from '../common/configs';
@@ -16,8 +17,23 @@ app.set('view engine', 'ejs');
 // set assets file path
 app.use(express.static('dist'));
 
-// routes
-app.get('*', (req, res) => {
+// api
+//Fetchr.registerService({
+//  name: 'RandomService',
+//  read: (_req, _resource, _params, _config, callback) => {
+//    callback(null, { num: Math.random() });
+//  }
+//});
+//app.use('/api', Fetchr.middleware());
+const apiRouter = express.Router();
+apiRouter.get('/', (req, res) => {
+  res.header('Content-Type', 'application/json; charset=utf-8');
+  res.json([1, 2, 3, 4, 5]);
+});
+app.use('/api', apiRouter);
+
+// all routes
+app.use((req, res) => {
   match({ routes, location: req.url }, (err, redirectLocation, props) => {
     if (err) {
       res.status(500).send(err.message);
