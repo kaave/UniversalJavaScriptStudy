@@ -5,6 +5,7 @@ import createBrowserHistory from 'history/lib/createBrowserHistory';
 import { AppContainer } from 'react-hot-loader';
 
 import routes from '../common/routes.jsx';
+import './base.css';
 
 function render () {
   ReactDOM.render(

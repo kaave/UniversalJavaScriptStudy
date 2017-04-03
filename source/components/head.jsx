@@ -1,7 +1,9 @@
 import React from 'react';
 import Helmet from 'react-helmet';
 
-export default function(_props) {
+const link = process.env.NODE_ENV === 'production' ? [{ rel: 'stylesheet', href: 'app.css' }] : [];
+
+export default function (_props) {
   return (
     <Helmet
       htmlAttributes={{ lang: 'ja' }}
@@ -13,9 +15,7 @@ export default function(_props) {
         { name: 'description', content: 'Universal JavaScript: powered by React with Redux' },
         { name: 'charset', content: 'UTF-8' }
       ]}
-      link={[
-        { rel: 'stylesheet', href: 'app.css' }
-      ]}
+      link={link}
     />
   );
 }

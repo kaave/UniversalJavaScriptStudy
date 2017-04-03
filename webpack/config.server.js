@@ -12,7 +12,7 @@ const nodeModules = (() => {
 
 module.exports = {
   context: process.cwd(),
-  entry: './entry_points/server.jsx',
+  entry: `${__dirname}/../source/entry_points/server.jsx`,
   target: 'node',
   output: {
     path: `${__dirname}/../dist/`,
@@ -34,7 +34,7 @@ module.exports = {
             loader: 'css-loader',
             options: {
               importLoaders: 1,
-              localIdentName: '[name]-[local]-[hash:base64:5]',
+              localIdentName: '[name]__[local]--[hash:base64:5]',
               modules: true
             }
           },

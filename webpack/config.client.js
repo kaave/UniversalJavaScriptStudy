@@ -6,7 +6,7 @@ module.exports = {
   entry: [
     'react-hot-loader/patch',
     'webpack-hot-middleware/client',
-    './entry_points/client.jsx'
+    `./source/entry_points/client.jsx`,
   ],
   output: {
     path: `${__dirname}/../dist/`,
@@ -33,7 +33,7 @@ module.exports = {
             loader: 'css-loader',
             options: {
               importLoaders: 1,
-              localIdentName: '[name]-[local]-[hash:base64:5]',
+              localIdentName: '[name]__[local]--[hash:base64:5]',
               modules: true
             }
           },

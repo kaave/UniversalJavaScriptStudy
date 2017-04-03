@@ -1,3 +1,4 @@
+import path from 'path';
 import express from 'express';
 import http from 'http';
 import React from 'react';
@@ -8,7 +9,7 @@ import webpack from 'webpack';
 import webpackDevMiddleware from 'webpack-dev-middleware';
 import webpackHotMiddleware from 'webpack-hot-middleware';
 
-import webpackClientConfig from '../webpack/config.client';
+import webpackClientConfig from '../../webpack/config.client';
 import routes from '../common/routes.jsx';
 import { port } from '../common/configs';
 import { helmet } from '../components/head.jsx';
@@ -25,6 +26,7 @@ app.use(webpackHotMiddleware(compiler));
 
 // set template engine
 app.set('view engine', 'ejs');
+app.set('views', './source/views/');
 
 // set assets file path
 app.use(express.static('dist'));

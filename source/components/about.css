@@ -1,0 +1,11 @@
+@import '../common/root.css';
+
+.body {
+  background-color: #1ea;
+}
+
+.message {
+  background-color: #111;
+  color: var(--brandColor);
+}
+
