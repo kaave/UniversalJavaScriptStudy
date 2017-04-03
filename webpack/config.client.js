@@ -27,8 +27,8 @@ module.exports = {
       },
       {
         test: /\.css$/,
-        fallback: 'style-loader',
         use: [
+          'style-loader',
           {
             loader: 'css-loader',
             options: {
@@ -42,5 +42,5 @@ module.exports = {
       }
     ]
   }
-}
+};
 
