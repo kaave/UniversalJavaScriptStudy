@@ -9,4 +9,3 @@ export default function(_props) {
     </div>
   );
 }
-

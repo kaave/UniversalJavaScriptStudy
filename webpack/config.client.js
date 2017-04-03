@@ -1,12 +1,23 @@
-const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const { resolve } = require('path');
+const webpack = require('webpack')
 
 module.exports = {
   context: process.cwd(),
-  entry: './entry_points/client.jsx',
+  entry: [
+    'react-hot-loader/patch',
+    'webpack-hot-middleware/client',
+    './entry_points/client.jsx'
+  ],
   output: {
-    path: './dist/',
+    path: `${__dirname}/../dist/`,
+    publicPath: '/',
     filename: 'client.js'
   },
+  plugins: [
+    new webpack.HotModuleReplacementPlugin(),
+    new webpack.NamedModulesPlugin(),
+    new webpack.NoEmitOnErrorsPlugin()
+  ],
   module: {
     rules: [
       {
@@ -16,25 +27,20 @@ module.exports = {
       },
       {
         test: /\.css$/,
-        use: ExtractTextPlugin.extract({
-          fallback: 'style-loader',
-          use: [
-            {
-              loader: 'css-loader',
-              options: {
-                importLoaders: 1,
-                localIdentName: '[name]-[local]-[hash:base64:5]',
-                modules: true
-              }
-            },
-            'postcss-loader'
-          ]
-        })
+        fallback: 'style-loader',
+        use: [
+          {
+            loader: 'css-loader',
+            options: {
+              importLoaders: 1,
+              localIdentName: '[name]-[local]-[hash:base64:5]',
+              modules: true
+            }
+          },
+          'postcss-loader'
+        ]
       }
     ]
-  },
-  plugins: [
-    new ExtractTextPlugin('app.css')
-  ]
-};
+  }
+}
 
