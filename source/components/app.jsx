@@ -13,6 +13,10 @@ export default class extends Component {
     this.handleClickFail = this.handleClickFail.bind(this);
   }
 
+  static fetchData () {
+    return NumberAction.creators.loadDone();
+  }
+
   handleClickStart () {
     this.props.dispatch(NumberAction.creators.loadStart());
   }

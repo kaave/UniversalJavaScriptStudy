@@ -21,17 +21,10 @@ function render (store) {
   );
 }
 
-// const store = createStore(combineNumberReducers, applyMiddleware())
-// const store = createStore(combineNumberReducers);
-//
-// render(store);
-//
-// if (module.hot) {
-//   module.hot.accept('../common/routes.jsx', () => render(store));
-// }
-
-render(getConfigureStore({
+const configureStore = getConfigureStore({
   reducerPath: '../reducers/_combinedReducer',
-  reducer: combineNumberReducers
-}));
+  reducer: combineNumberReducers,
+  initialState: window.APP_STATE || {}
+});
 
+render(configureStore);

@@ -1,8 +1,8 @@
 import { createStore, applyMiddleware } from 'redux';
 import logger from 'redux-logger'
 
-export function getConfigureStore ({ reducerPath, reducer }) {
-  const store = createStore(reducer, applyMiddleware(logger));
+export function getConfigureStore ({ reducerPath, reducer, initialState }) {
+  const store = createStore(reducer, initialState || {}, applyMiddleware(logger));
 
   if (module.hot) {
     module.hot.accept(reducerPath, () => (
@@ -12,4 +12,3 @@ export function getConfigureStore ({ reducerPath, reducer }) {
 
   return store;
 }
-
