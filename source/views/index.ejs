@@ -8,8 +8,11 @@
 </head>
 <body>
   <div id="app"><%- markup %></div>
+  <pre><%- appState %></pre>
+  <script>
+    window.APP_STATE = <%- appState || {} %>;
+  </script>
   <script src="client.js"></script>
   <%- script %>
 </body>
 </html>
-
