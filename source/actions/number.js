@@ -9,5 +9,8 @@ export const actions = {};
 ].forEach(key => actions[key] = key);
 
 export const creators = {
+  loadStart: () => createAction(actions.LOAD_START)(),
+  loadDone: () => createAction(actions.LOAD_DONE)(),
+  loadFail: () => createAction(actions.LOAD_FAIL)(),
 };
 
