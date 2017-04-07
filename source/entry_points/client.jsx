@@ -5,7 +5,8 @@ import { Provider } from 'react-redux';
 import createBrowserHistory from 'history/lib/createBrowserHistory';
 import { AppContainer } from 'react-hot-loader';
 
-import combineNumberReducers from '../reducers/_combinedReducer';
+//import combineNumberReducers from '../reducers/_combinedReducer';
+import rootReducer from '../reducers';
 import routes from '../common/routes.jsx';
 import { getConfigureStore } from '../common/utils';
 import './base.css';
@@ -22,9 +23,14 @@ function render (store) {
 }
 
 const configureStore = getConfigureStore({
-  reducerPath: '../reducers/_combinedReducer',
-  reducer: combineNumberReducers,
+  reducerPath: '../reducers',
+  //reducer: combineNumberReducers,
+  reducer: rootReducer,
   initialState: window.APP_STATE || {}
 });
 
 render(configureStore);
+
+if (module.hot) {
+  module.hot.accept('../common/routes.jsx', () => render());
+}

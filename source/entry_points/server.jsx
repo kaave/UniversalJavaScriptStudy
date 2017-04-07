@@ -14,21 +14,24 @@ import routes from '../common/routes.jsx';
 import { port } from '../common/configs';
 import { getConfigureStore } from '../common/utils';
 import { helmet } from '../components/head.jsx';
-import combineNumberReducers from '../reducers/_combinedReducer';
+//import combineNumberReducers from '../reducers/_combinedReducer';
+import rootReducer from '../reducers';
 
 const compiler = webpack(webpackClientConfig);
 const app = express();
 const store = getConfigureStore({
-  reducerPath: '../reducers/_combinedReducer',
-  reducer: combineNumberReducers
+  reducerPath: '../reducers',
+  reducer: rootReducer
 });
 
 // set dev-middleware
-app.use(webpackDevMiddleware(compiler, {
-  noInfo: true,
-  publicPath: webpackClientConfig.output.publicPath
-}));
-app.use(webpackHotMiddleware(compiler));
+//if (process.env.NODE_ENV === 'development') {
+  app.use(webpackDevMiddleware(compiler, {
+    noInfo: true,
+    publicPath: webpackClientConfig.output.publicPath
+  }));
+  app.use(webpackHotMiddleware(compiler));
+//}
 
 // set template engine
 app.set('view engine', 'ejs');

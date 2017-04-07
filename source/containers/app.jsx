@@ -60,6 +60,7 @@ export default class extends Component {
       <div>
         <Head />
         <h2>Welcome to my App</h2>
+        <h3>Click "Number" link.</h3>
         <ul>
           <li><Link to="/">Home</Link></li>
           <li><Link to="/about">About</Link></li>
