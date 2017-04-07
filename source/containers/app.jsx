@@ -2,7 +2,7 @@ import React, { Component, cloneElement } from 'react';
 import { Link } from 'react-router';
 
 import * as NumberAction from '../actions/number';
-import Head from './head.jsx';
+import Head from '../components/head.jsx';
 
 export default class extends Component {
   constructor (props) {
