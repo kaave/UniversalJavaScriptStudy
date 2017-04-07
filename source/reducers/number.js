@@ -18,3 +18,18 @@ export function Numbers (state = [], action) {
       return state;
   }
 }
+
+export function ChangeDateTime (state = new Date(), action) {
+  switch (action.type) {
+    case actions.LOAD_START:
+    case actions.LOAD_DONE:
+    case actions.LOAD_FAIL:
+    case actions.INCREMENT:
+    case actions.DECREMENT:
+    case actions.FETCHDONE:
+      return new Date();
+    default:
+      return state;
+  }
+}
+

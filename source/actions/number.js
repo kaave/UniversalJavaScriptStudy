@@ -1,5 +1,4 @@
 import { createAction } from 'redux-actions';
-import { format } from 'date-fns';
 
 export const actions = {};
 [

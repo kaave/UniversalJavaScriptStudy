@@ -1,5 +1,6 @@
 import React, { Component, cloneElement } from 'react';
 import { Link } from 'react-router';
+import { format } from 'date-fns';
 
 import * as NumberAction from '../actions/number';
 import Head from '../components/head.jsx';
@@ -56,10 +57,11 @@ export default class extends Component {
 
   render () {
     const { handleClickStart, handleClickDone, handleClickFail, handleClickIncrement, handleClickDecrement, handleClickSlowIncrement, handleClickSlowDecrement, handleClickFetch } = this;
+
     return (
       <div>
         <Head />
-        <h2>Welcome to my App</h2>
+        <h2>Welcome to my App: update datetime[{format(this.props.numberChangeDateTime, 'YYYY-MM-DD HH:mm:ss.SSS')}]</h2>
         <h3>Click "Number" link.</h3>
         <ul>
           <li><Link to="/">Home</Link></li>
