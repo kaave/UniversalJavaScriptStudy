@@ -8,8 +8,13 @@ export function Numbers (state = [], action) {
       return [5, 4, 3, 2, 1];
     case actions.LOAD_FAIL:
       return [10, 20, 30, 40, 50];
+    case actions.INCREMENT:
+      return state.map(num => num + 1);
+    case actions.DECREMENT:
+      return state.map(num => num - 1);
+    case actions.FETCHDONE:
+      return action.payload;
     default:
       return state;
   }
 }
-

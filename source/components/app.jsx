@@ -11,6 +11,11 @@ export default class extends Component {
     this.handleClickStart = this.handleClickStart.bind(this);
     this.handleClickDone = this.handleClickDone.bind(this);
     this.handleClickFail = this.handleClickFail.bind(this);
+    this.handleClickIncrement = this.handleClickIncrement.bind(this);
+    this.handleClickDecrement = this.handleClickDecrement.bind(this);
+    this.handleClickSlowIncrement = this.handleClickSlowIncrement.bind(this);
+    this.handleClickSlowDecrement = this.handleClickSlowDecrement.bind(this);
+    this.handleClickFetch = this.handleClickFetch.bind(this);
   }
 
   static fetchData () {
@@ -29,8 +34,28 @@ export default class extends Component {
     this.props.dispatch(NumberAction.creators.loadFail());
   }
 
+  handleClickIncrement () {
+    this.props.dispatch(NumberAction.creators.increment());
+  }
+
+  handleClickDecrement () {
+    this.props.dispatch(NumberAction.creators.decrement());
+  }
+
+  handleClickSlowIncrement () {
+    this.props.dispatch(NumberAction.creators.slowIncrement());
+  }
+
+  handleClickSlowDecrement () {
+    this.props.dispatch(NumberAction.creators.slowDecrement());
+  }
+
+  handleClickFetch () {
+    this.props.dispatch(NumberAction.creators.fetch());
+  }
+
   render () {
-    const { handleClickStart, handleClickDone, handleClickFail } = this;
+    const { handleClickStart, handleClickDone, handleClickFail, handleClickIncrement, handleClickDecrement, handleClickSlowIncrement, handleClickSlowDecrement, handleClickFetch } = this;
     return (
       <div>
         <Head />
@@ -45,6 +70,11 @@ export default class extends Component {
           <li><button onClick={handleClickStart}>START</button></li>
           <li><button onClick={handleClickDone}>DONE</button></li>
           <li><button onClick={handleClickFail}>FAIL</button></li>
+          <li><button onClick={handleClickIncrement}>Increment</button></li>
+          <li><button onClick={handleClickDecrement}>Decrement</button></li>
+          <li><button onClick={handleClickSlowIncrement}>SlowIncrement</button></li>
+          <li><button onClick={handleClickSlowDecrement}>SlowDecrement</button></li>
+          <li><button onClick={handleClickFetch}>Fetch</button></li>
         </ul>
 
         {

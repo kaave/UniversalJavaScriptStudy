@@ -41,7 +41,7 @@ app.use(express.static('dist'));
 const apiRouter = express.Router();
 apiRouter.get('/', (req, res) => {
   res.header('Content-Type', 'application/json; charset=utf-8');
-  res.json([1, 2, 3, 4, 5]);
+  res.json([4, 5, 9, 7, 12]);
 });
 app.use('/api', apiRouter);
 
