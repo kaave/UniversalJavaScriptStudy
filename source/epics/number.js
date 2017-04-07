@@ -13,10 +13,6 @@ export default [
     .mapTo({ type: 'INCREMENT' }),
   (action$, store) => action$
     .ofType('SLOWDECREMENT')
-    .filter(() => {
-      console.log(store.getState());
-      return true;
-    })
     .delay(1000)
     .mapTo({ type: 'DECREMENT' }),
   action$ => action$
