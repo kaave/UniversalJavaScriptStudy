@@ -12,6 +12,7 @@ module.exports = {
     publicPath: '/',
     filename: 'client.js'
   },
+  devtool: 'inline-source-map',
   plugins: [
     new webpack.HotModuleReplacementPlugin(),
     new webpack.NamedModulesPlugin(),
