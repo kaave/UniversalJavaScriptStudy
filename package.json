@@ -8,8 +8,8 @@
     "start": "npm-run-all -p start:client start:server",
     "start:client": "npm run build:client",
     "start:server": "npm run build:server && node ./dist/server.js",
-    "build:client": "webpack --config=webpack/config.client.js -w",
-    "build:server": "webpack --config=webpack/config.server.js"
+    "build:client": "webpack --config=webpack/config.client.js --progress --color -w",
+    "build:server": "webpack --config=webpack/config.server.js --progress --color"
   },
   "dependencies": {
     "ejs": "^2.5.6",
