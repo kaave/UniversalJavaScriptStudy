@@ -5,11 +5,11 @@ import { Provider } from 'react-redux';
 import createBrowserHistory from 'history/lib/createBrowserHistory';
 import { AppContainer } from 'react-hot-loader';
 
+import './base.css';
 //import combineNumberReducers from '../reducers/_combinedReducer';
 import rootReducer from '../reducers';
 import routes from '../common/routes.jsx';
 import { getConfigureStore } from '../common/utils';
-import './base.css';
 
 function render (store) {
   ReactDOM.render(

@@ -9,7 +9,7 @@ import webpack from 'webpack';
 import webpackDevMiddleware from 'webpack-dev-middleware';
 import webpackHotMiddleware from 'webpack-hot-middleware';
 
-import webpackClientConfig from '../../webpack/config.client';
+import webpackClientConfig from '../../webpack/client';
 import routes from '../common/routes.jsx';
 import { port } from '../common/configs';
 import { getConfigureStore } from '../common/utils';
@@ -25,13 +25,11 @@ const store = getConfigureStore({
 });
 
 // set dev-middleware
-//if (process.env.NODE_ENV === 'development') {
-  app.use(webpackDevMiddleware(compiler, {
-    noInfo: true,
-    publicPath: webpackClientConfig.output.publicPath
-  }));
-  app.use(webpackHotMiddleware(compiler));
-//}
+app.use(webpackDevMiddleware(compiler, {
+  noInfo: true,
+  publicPath: webpackClientConfig.output.publicPath
+}));
+app.use(webpackHotMiddleware(compiler));
 
 // set template engine
 app.set('view engine', 'ejs');
@@ -44,7 +42,7 @@ app.use(express.static('dist'));
 const apiRouter = express.Router();
 apiRouter.get('/', (req, res) => {
   res.header('Content-Type', 'application/json; charset=utf-8');
-  res.json([4, 5, 9, 7, 12]);
+  res.json(Array.from(Array(Math.ceil(Math.random() * 100))).map(() => Math.floor(Math.random() * 100)));
 });
 app.use('/api', apiRouter);
 
