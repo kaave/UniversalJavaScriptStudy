@@ -24,6 +24,6 @@ export const creators = {
   slowIncrement: () => createAction(actions.SLOWINCREMENT)(),
   slowDecrement: () => createAction(actions.SLOWDECREMENT)(),
   fetch: () => createAction(actions.FETCH)(),
-  fetchDone: val => createAction(actions.FETCHDONE)(val)
+  fetchDone: (val: number[]) => createAction(actions.FETCHDONE)(val)
 };
 

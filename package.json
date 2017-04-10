@@ -5,17 +5,21 @@
   "repository": {},
   "license": "MIT",
   "scripts": {
+    "postinstall": "flow-typed install && rimraf flow-typed/npm/browser-env_*",
+    "prestart": "yarn run lint",
     "start": "npm-run-all -p start:client start:server",
     "start:client": "NODE_ENV=development webpack --config=webpack/client/index.js --progress --color -w",
     "start:server": "NODE_ENV=development npm run build:server && node ./dist/server.js",
     "build": "NODE_ENV=production rimraf dist/ && npm-run-all -p build:client build:server",
     "build:client": "webpack --config=webpack/client/index.js --progress --color",
     "build:server": "webpack --config=webpack/server/index.js --progress --color",
-    "lint": "npm-run-all -p lint:scripts lint:styles",
+    "lint": "npm-run-all -p typecheck lint:scripts lint:styles",
     "lint:scripts": "eslint --ext .js,.jsx source/",
     "lint:scripts:fix": "eslint --fix --ext .js,.jsx source/",
     "lint:styles": "stylelint 'source/**/*.scss'",
-    "modulecheck": "rimraf dist/ && rimraf node_modules && npm i && npm start"
+    "typecheck": "flow",
+    "flow-typed": "flow-typed",
+    "modulecheck": "rimraf node_modules && npm i && npm start"
   },
   "dependencies": {
     "date-fns": "^1.28.2",
@@ -55,6 +59,8 @@
     "eslint-plugin-jsx-a11y": "^4.0.0",
     "eslint-plugin-react": "^6.10.3",
     "extract-text-webpack-plugin": "^2.1.0",
+    "flow-bin": "^0.43.1",
+    "flow-typed": "^2.0.0",
     "isomorphic-style-loader": "^1.1.0",
     "node-sass": "^4.5.2",
     "npm-run-all": "^4.0.2",
