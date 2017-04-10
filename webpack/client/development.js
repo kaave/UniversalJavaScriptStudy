@@ -3,11 +3,11 @@ const webpack = require('webpack')
 const { base } = require('./base');
 
 const entry = {};
-Object.keys(base.entry).forEach(key => entry[key] = [
+Object.keys(base.entry).forEach(key => (entry[key] = [
   'react-hot-loader/patch',
   'webpack-hot-middleware/client',
   ...base.entry[key]
-]);
+]));
 
 module.exports = Object.assign({}, base, {
   entry,
@@ -18,13 +18,10 @@ module.exports = Object.assign({}, base, {
       {
         test: /\.jsx?$/,
         exclude: /node_modules/,
-        use: [
-          'react-hot-loader',
-          'babel-loader'
-        ]
+        use: 'babel-loader'
       },
       {
-        test: /\.css$/,
+        test: /\.s[ac]ss$/,
         use: [
           'style-loader',
           {
@@ -35,7 +32,8 @@ module.exports = Object.assign({}, base, {
               modules: true
             }
           },
-          'postcss-loader'
+          'postcss-loader',
+          'sass-loader'
         ]
       }
     ]

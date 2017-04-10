@@ -31,7 +31,7 @@ module.exports = {
           use: 'babel-loader'
         },
         {
-          test: /\.css$/,
+          test: /\.s[ac]ss$/,
           use: [
             'isomorphic-style-loader',
             {
@@ -42,7 +42,8 @@ module.exports = {
                 modules: true
               }
             },
-            'postcss-loader'
+            'postcss-loader',
+            'sass-loader'
           ]
         }
       ]

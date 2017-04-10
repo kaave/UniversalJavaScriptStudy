@@ -7,7 +7,7 @@ import { Provider } from 'react-redux';
 import createBrowserHistory from 'history/lib/createBrowserHistory';
 import { AppContainer } from 'react-hot-loader';
 
-import './base.css';
+import './base.scss';
 //import combineNumberReducers from '../reducers/_combinedReducer';
 import rootReducer from '../reducers';
 import routes from '../common/routes.jsx';

@@ -1,4 +1,4 @@
-@import '../common/root.css';
+@import '../common/root';
 
 .body {
   background-color: #1ea;
@@ -6,6 +6,6 @@
 
 .message {
   background-color: #111;
-  color: var(--brandColor);
+  color: $brand-color;
 }
 

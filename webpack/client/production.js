@@ -15,7 +15,7 @@ module.exports = Object.assign({}, base, {
         use: 'babel-loader'
       },
       {
-        test: /\.css$/,
+        test: /\.s[ac]ss$/,
         use: ExtractTextPlugin.extract({
           fallback: 'style-loader',
           use: [
@@ -28,7 +28,8 @@ module.exports = Object.assign({}, base, {
                 minimize: true
               }
             },
-            'postcss-loader'
+            'postcss-loader',
+            'sass-loader'
           ]
         })
       }
