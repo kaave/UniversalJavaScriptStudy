@@ -131,6 +131,6 @@ tags
 # IntelliJ local configs
 /.idea
 # build directory
-/dist
+/build
 # flowtype declare files
 /flow-typed
