@@ -3,7 +3,7 @@ import Helmet from 'react-helmet';
 
 const link = process.env.NODE_ENV === 'production' ? [{ rel: 'stylesheet', href: 'app.css' }] : [];
 
-export default function (_props) {
+export default function(_props) {
   return (
     <Helmet
       htmlAttributes={{ lang: 'ja' }}

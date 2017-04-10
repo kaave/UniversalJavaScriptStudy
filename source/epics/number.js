@@ -1,3 +1,4 @@
+/* eslint no-unused-vars: "off" */
 import rx from 'rxjs';
 import 'rxjs/add/operator/filter';
 import 'rxjs/add/operator/delay';
@@ -11,7 +12,7 @@ export default [
     .ofType('SLOWINCREMENT')
     .delay(1000)
     .mapTo({ type: 'INCREMENT' }),
-  (action$, store) => action$
+  (action$, _store) => action$
     .ofType('SLOWDECREMENT')
     .delay(1000)
     .mapTo({ type: 'DECREMENT' }),

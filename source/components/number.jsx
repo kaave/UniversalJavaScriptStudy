@@ -1,6 +1,7 @@
+/* eslint react/no-array-index-key: "off" */
 import React from 'react';
 
-export default function (props) {
+export default function(props) {
   const { numbers } = props;
 
   return (
@@ -10,4 +11,3 @@ export default function (props) {
     </div>
   );
 }
-

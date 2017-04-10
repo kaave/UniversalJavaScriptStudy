@@ -6,6 +6,10 @@ import * as NumberAction from '../actions/number';
 import Head from '../components/head.jsx';
 
 export default class extends Component {
+  static fetchData () {
+    return NumberAction.creators.loadDone();
+  }
+
   constructor (props) {
     super(props);
 
@@ -17,10 +21,6 @@ export default class extends Component {
     this.handleClickSlowIncrement = this.handleClickSlowIncrement.bind(this);
     this.handleClickSlowDecrement = this.handleClickSlowDecrement.bind(this);
     this.handleClickFetch = this.handleClickFetch.bind(this);
-  }
-
-  static fetchData () {
-    return NumberAction.creators.loadDone();
   }
 
   handleClickStart () {
@@ -56,13 +56,11 @@ export default class extends Component {
   }
 
   render () {
-    const { handleClickStart, handleClickDone, handleClickFail, handleClickIncrement, handleClickDecrement, handleClickSlowIncrement, handleClickSlowDecrement, handleClickFetch } = this;
-
     return (
       <div>
         <Head />
         <h2>Welcome to my App: update datetime[{format(this.props.numberChangeDateTime, 'YYYY-MM-DD HH:mm:ss.SSS')}]</h2>
-        <h3>Click "Number" link.</h3>
+        <h3>Click &quot;Number&quot; link.</h3>
         <ul>
           <li><Link to="/">Home</Link></li>
           <li><Link to="/about">About</Link></li>
@@ -70,14 +68,14 @@ export default class extends Component {
         </ul>
 
         <ul>
-          <li><button onClick={handleClickStart}>START</button></li>
-          <li><button onClick={handleClickDone}>DONE</button></li>
-          <li><button onClick={handleClickFail}>FAIL</button></li>
-          <li><button onClick={handleClickIncrement}>Increment</button></li>
-          <li><button onClick={handleClickDecrement}>Decrement</button></li>
-          <li><button onClick={handleClickSlowIncrement}>SlowIncrement</button></li>
-          <li><button onClick={handleClickSlowDecrement}>SlowDecrement</button></li>
-          <li><button onClick={handleClickFetch}>Fetch</button></li>
+          <li><button onClick={this.handleClickStart}>START</button></li>
+          <li><button onClick={this.handleClickDone}>DONE</button></li>
+          <li><button onClick={this.handleClickFail}>FAIL</button></li>
+          <li><button onClick={this.handleClickIncrement}>Increment</button></li>
+          <li><button onClick={this.handleClickDecrement}>Decrement</button></li>
+          <li><button onClick={this.handleClickSlowIncrement}>SlowIncrement</button></li>
+          <li><button onClick={this.handleClickSlowDecrement}>SlowDecrement</button></li>
+          <li><button onClick={this.handleClickFetch}>Fetch</button></li>
         </ul>
 
         {

@@ -1,4 +1,3 @@
-import path from 'path';
 import express from 'express';
 import http from 'http';
 import React from 'react';
@@ -14,7 +13,6 @@ import routes from '../common/routes.jsx';
 import { port } from '../common/configs';
 import { getConfigureStore } from '../common/utils';
 import { helmet } from '../components/head.jsx';
-//import combineNumberReducers from '../reducers/_combinedReducer';
 import rootReducer from '../reducers';
 
 const compiler = webpack(webpackClientConfig);
@@ -68,8 +66,8 @@ app.use((req, res) => {
           const { title, htmlAttributes, meta, link, script, style } = helmet.rewind();
           res.render('index', { markup, title, htmlAttributes, meta, link, script, style, appState: JSON.stringify(store.getState()) });
         }).catch(error => {
-        res.status(500).send(error.message);
-      });
+          res.status(500).send(error.message);
+        });
     } else {
       res.sendStatus(404);
     }

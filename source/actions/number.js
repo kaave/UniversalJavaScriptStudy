@@ -1,3 +1,5 @@
+// @flow
+
 import { createAction } from 'redux-actions';
 
 export const actions = {};
@@ -11,7 +13,7 @@ export const actions = {};
   'SLOWDECREMENT',
   'FETCH',
   'FETCHDONE'
-].forEach(key => actions[key] = key);
+].forEach(key => (actions[key] = key));
 
 export const creators = {
   loadStart: () => createAction(actions.LOAD_START)(),
