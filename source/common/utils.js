@@ -14,3 +14,4 @@ export function getConfigureStore ({ reducerPath, reducer, initialState }) {
 
   return store;
 }
+
