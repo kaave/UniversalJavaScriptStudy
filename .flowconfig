@@ -2,6 +2,7 @@
 .*/node_modules/npm/*
 .*/node_modules/findup/*
 .*/node_modules/stylelint/*
+.*/node_modules/gulp-flowtype/*
 .*/node_modules/config-chain/*
 
 [include]
