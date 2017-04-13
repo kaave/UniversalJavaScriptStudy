@@ -1,12 +1,39 @@
 {
     "presets": [
-        "flow",
-        ["env", { "modules": false }],
-        "stage-0",
-        "react"
+        "flow"
     ],
     "plugins": [
-        "react-hot-loader/babel"
-    ]
+        "react-hot-loader/babel",
+        "date-fns"
+    ],
+    "env": {
+        "development": {
+            "presets": [
+                ["env", {
+                    "modules": false,
+                    "useBuiltIns": true
+                }],
+                "stage-0",
+                "react"
+            ]
+        },
+        "production": {
+            "presets": [
+                ["env", {
+                    "targets": { "uglify": true },
+                    "modules": false,
+                    "useBuiltIns": true
+                }],
+                "stage-0",
+                "react"
+            ]
+        },
+        "test": {
+            "presets": [
+                ["env", { "targets": { "node": 6.9 } }],
+                "stage-0",
+                "react"
+            ]
+        }
+    }
 }
-
