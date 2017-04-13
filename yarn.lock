@@ -4014,6 +4014,12 @@ postcss-filter-plugins@^2.0.0:
     postcss "^5.0.4"
     uniqid "^4.0.0"
 
+postcss-flexbugs-fixes@^2.1.1:
+  version "2.1.1"
+  resolved "https://registry.yarnpkg.com/postcss-flexbugs-fixes/-/postcss-flexbugs-fixes-2.1.1.tgz#5fa40080ba216d398e41228be2765282f2060d8d"
+  dependencies:
+    postcss "^5.0.0"
+
 postcss-less@^0.14.0:
   version "0.14.0"
   resolved "https://registry.yarnpkg.com/postcss-less/-/postcss-less-0.14.0.tgz#c631b089c6cce422b9a10f3a958d2bedd3819324"
@@ -4158,6 +4164,12 @@ postcss-normalize-url@^3.0.7:
     normalize-url "^1.4.0"
     postcss "^5.0.14"
     postcss-value-parser "^3.2.3"
+
+postcss-nth-child-fix@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/postcss-nth-child-fix/-/postcss-nth-child-fix-1.0.0.tgz#c151c3ef46986f4c6c3cf84bb01fb0bb7390666c"
+  dependencies:
+    postcss "^5.0.21"
 
 postcss-ordered-values@^2.1.0:
   version "2.2.3"

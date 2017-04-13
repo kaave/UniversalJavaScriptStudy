@@ -6,7 +6,7 @@
   "license": "MIT",
   "scripts": {
     "postinstall": "flow-typed install && rimraf flow-typed/npm/browser-env_*",
-    "prestart": "yarn run lint",
+    "prestart_": "yarn run lint",
     "start": "npm-run-all -p start:client start:server",
     "start:client": "NODE_ENV=development webpack --config=webpack/client/index.js --progress --color -w",
     "start:server": "NODE_ENV=development npm-run-all build:server server",
@@ -68,7 +68,9 @@
     "isomorphic-style-loader": "^1.1.0",
     "node-sass": "^4.5.2",
     "npm-run-all": "^4.0.2",
+    "postcss-flexbugs-fixes": "^2.1.1",
     "postcss-loader": "^1.3.0",
+    "postcss-nth-child-fix": "^1.0.0",
     "react-hot-loader": "^3.0.0-beta.6",
     "rimraf": "^2.6.1",
     "sass-loader": "^6.0.3",
