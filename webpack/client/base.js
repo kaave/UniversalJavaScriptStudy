@@ -6,7 +6,10 @@ module.exports = {
   base: {
     context: process.cwd(),
     entry: {
-      app: ['./source/entry_points/client.jsx']
+      app: [
+        'babel-polyfill',
+        './source/entry_points/client.jsx'
+      ]
     },
     output: {
       path: path.join(__dirname, '..', '..', 'build'),
