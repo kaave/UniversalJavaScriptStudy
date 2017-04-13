@@ -18,7 +18,10 @@ module.exports = {
     'max-nesting-depth': 5,
     // BEMにマッチさせるのが難しいので無効
     'selector-class-pattern': null,
+    // セレクタにタグは使わない ただし属性は許可する typeなんかは微妙だけどdisabledとか使いたいので
+    'selector-no-qualifying-type': [true, { ignore: [ 'attribute' ] }],
     // アルファベット順に並べましょう、だなんて面倒だし意味ごとにまとめたいこともあるので無効
     'order/declaration-block-properties-alphabetical-order': null
   }
 };
+
